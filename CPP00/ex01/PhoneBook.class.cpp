@@ -20,7 +20,7 @@ public:
 private:
 	std::string		first_name;
 	std::string		last_name;
-	std::string		nick_name;
+	std::string		nickname;
 	std::string		phone_number;
 	std::string		darkest_secret;
 };
@@ -50,10 +50,19 @@ Contact::~Contact(void)
 	std::cout << "Contact Destructor called\n";
 }
 
+void	Contact::set_last_name(std::string str)
+{
+	this->last_name = str;
+}
+
+void	Contact::set_first_name(std::string str)
+{
+	this->first_name = str;
+}
 
 void	Contact::set_nickname(std::string str)
 {
-	this->nick_name = str;
+	this->nickname = str;
 }
 
 PhoneBook::PhoneBook(void):count(0)
@@ -94,7 +103,7 @@ bool	PhoneBook::add_name(Contact *contact, std::string name, void (Contact::*set
 }
 
 bool	PhoneBook::add_contact(void)
-{	
+{
 	Contact *contact;
 	
 	
@@ -108,14 +117,14 @@ bool	PhoneBook::add_contact(void)
 	//std::string		nick_name;
 	//std::string		phone_number;
 	//std::string		darkest_secret;
-
+	//this->add_name(contact, "first name", &Contact::set_first_name);
 	//void (Contact::*set)(std::string) = ;
-	if (!this->add_name(contact, "first name", &Contact::set_first_name))
-		//return(false);
-	//if (!add_name(contact, "last name", &Contact::set_last_name))
-		//return(false);
-	//if (!add_name(contact, "nickname", &Contact::set_nickname))
-		//return(false);
+	if (!this->add_name(contact, "first name", &Contact::set_nickname))
+		return(false);
+	if (!this->add_name(contact, "first name", &Contact::set_last_name))
+		return(false);
+	if (!this->add_name(contact, "last name", &Contact::set_last_name))
+		return(false);
 	if (this->count >= 7)
 		++this->count;
 	return (true);	
@@ -131,6 +140,7 @@ int main(void)
 {
 	PhoneBook pb;
 	pb.add_contact();
+	//pb.add_name(&pb.tab[0], "nickname", &Contact::set_first_name);
 	//bool			add_name(Contact *contact, std::string name, void (Contact::*f)(std::string))
 }
 
