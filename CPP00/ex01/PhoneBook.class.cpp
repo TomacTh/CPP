@@ -1,78 +1,22 @@
-//#include "PhoneBook.class.hpp"
-//#include "Contact.class.hpp"
 #include <iostream>
-
-
-class	Contact
-{
-public:
-	Contact(void);
-	~Contact(void);
-	//std::string		get_first_name(void);
-	//std::string		get_last_name(void);
-	//std::string		get_nick_name(void);
-	void	set_first_name(std::string);
-	void	set_last_name(std::string);
-	void	set_nickname(std::string);
-	//std::string		set_phone_number(void);
-	//std::string		set_darkest_secret(void);
-
-private:
-	std::string		first_name;
-	std::string		last_name;
-	std::string		nickname;
-	std::string		phone_number;
-	std::string		darkest_secret;
-};
-
-class	PhoneBook 
-{
-public:
-	PhoneBook(void);
-	~PhoneBook(void);
-	unsigned int	get_count(void);
-	bool			add_contact(void);
-
-private:
-	bool			add_name(Contact *contact, std::string name, void (Contact::*f)(std::string));
-	bool			add_phonenumber(Contact *contact);
-	unsigned int	count;
-	Contact			tab[8];
-};
-
-Contact::Contact(void)
-{
-	std::cout << "Contact Constructor called\n";
-}
-
-Contact::~Contact(void)
-{
-	std::cout << "Contact Destructor called\n";
-}
-
-void	Contact::set_last_name(std::string str)
-{
-	this->last_name = str;
-}
-
-void	Contact::set_first_name(std::string str)
-{
-	this->first_name = str;
-}
-
-void	Contact::set_nickname(std::string str)
-{
-	this->nickname = str;
-}
+#include <ios>
+#include <iomanip>
+#include "Contact.class.hpp"
+#include "PhoneBook.class.hpp"
 
 PhoneBook::PhoneBook(void):count(0)
 {
-	std::cout << "PhoneBook Constructor called\n";
+	std::cout << "PhoneBook Constructor called" << std::endl;
 }
 
 PhoneBook::~PhoneBook(void)
 {
-	std::cout << "PhoneBook Destructor called\n";
+	std::cout << "PhoneBook Destructor called" << std::endl;
+}
+
+unsigned int	PhoneBook::get_count(void)
+{
+	return (this->count);
 }
 
 bool	contain_only_letters(std::string str)
@@ -85,20 +29,128 @@ bool	contain_only_letters(std::string str)
 	return (true);
 }
 
+bool	contain_only_digits(std::string str)
+{
+	for (size_t i = 0; i < str.size(); ++i)
+	{
+		if (!isdigit(str[i]))
+			return (false);
+	}
+	return (true);
+}
+
+void	print_good_width(std::string str)
+{	
+	if (str.length() > 10)
+		std::cout << std::setw(9) << str.substr(0, 9) << "." << "|";
+	else
+		std::cout << std::setw(10) << str << "|";
+}
+
+bool	PhoneBook::display_contacts(void)
+{	
+	std::string	str;
+	bool		res;
+	int			index;
+
+	if (!this->count)
+	{
+		std::cout << "Phonebook is empty, please add a contact before !" << std::endl;
+		return (true);
+	}
+	std::cout << "|" << std::setw(10) << "id" << "|";
+	std::cout << std::setw(10) << "first name" << "|";
+	std::cout << std::setw(10) << "last name" << "|";
+	std::cout << std::setw(10) << "nickname"  << "|" << std::endl;
+	for (unsigned int i = 0; i < this->count; ++i)
+	{	
+		std::cout << '|';
+		std::cout << std::setw(10);
+		std::cout << i << "|";
+		print_good_width(tab[i].get_first_name());
+		print_good_width(tab[i].get_last_name());
+		print_good_width(tab[i].get_nickname());
+		std::cout << "\n";
+	}
+	res = false;
+	while (!res)
+	{	
+		std::cout << "Please enter id:" << std::endl;
+		std::getline(std::cin, str);
+		if (std::cin.fail())
+			return (false);
+		if (str.length() != 1 || !isdigit(str[0]) || (char)str[0] > (char)(count + 48))
+			std::cerr << "Bad input please enter a correct id between 0 and " << (count - 1) << std::endl;
+		else
+		{	
+			index = (int)(str[0] - 48);
+			std::cout << "id            : " << index << std::endl;
+			std::cout << "first name    : " << tab[index].get_first_name() << std::endl;
+			std::cout << "last name     : " << tab[index].get_last_name() << std::endl;
+			std::cout << "nickname      : " << tab[index].get_nickname() << std::endl;
+			std::cout << "phonenumber   : " << tab[index].get_phone_number() << std::endl;
+			std::cout << "darkset secret: " << tab[index].get_darkest_secret() << std::endl;
+			res = true;
+		}
+	}
+	return (true);
+	
+}
+
 bool	PhoneBook::add_name(Contact *contact, std::string name, void (Contact::*set)(std::string))
 {
 	std::string str;
 
-	std::cout << "Please enter a " << name << " (mininum two letters)\n";
-	if (std::getline(std::cin, str) != std::cin)
+	std::cout << "Please enter a " << name << " (only letters, minimum 2)" << std::endl;
+	std::getline(std::cin, str);
+	if (std::cin.fail())
+	{	
+		std::cout << "eof";
 		return (false);
+	}
 	else if (str.length() < 2 || !contain_only_letters(str))
 	{
-		std::cerr << "Error please enter a correct input\n";
+		std::cerr << "Error please enter a correct input" << std::endl;
 		this->add_name(contact, name, set);
 	}
 	else
 		(contact->*set)(str);
+	return (true);
+}
+
+bool	PhoneBook::add_phonenumber(Contact *contact)
+{
+	std::string str;
+
+	std::cout << "Please enter a phone number (10 digits)" << std::endl;
+	std::getline(std::cin, str);
+	if (std::cin.fail())
+		return (false);
+	else if (str.length() < 10 || !contain_only_digits(str))
+	{
+		std::cerr << "Error please enter a correct input" << std::endl;
+		this->add_phonenumber(contact);
+	}
+	else
+		contact->set_phone_number(str);
+	return (true);
+}
+
+bool	PhoneBook::add_secret(Contact *contact)
+{
+	std::string str;
+
+	std::cout << "Please enter your darkest secret (minimum 4 characters)" << std::endl;
+	std::getline(std::cin, str);
+	if (std::cin.fail())
+		return (false);
+	else if (str.length() < 4)
+	{
+		std::cerr << "Error please enter a correct input" << std::endl;
+		this->add_secret(contact);
+	}
+	else
+		contact->set_darkest_secret(str);
 	return (true);
 }
 
@@ -107,40 +159,22 @@ bool	PhoneBook::add_contact(void)
 	Contact *contact;
 	
 	
-	if (this->count >= 7)
+	if (this->count > 7)
 		contact = &this->tab[0];
 	else
 		contact = &this->tab[this->count];
-	
-	//std::string		first_name;
-	//std::string		last_name;
-	//std::string		nick_name;
-	//std::string		phone_number;
-	//std::string		darkest_secret;
-	//this->add_name(contact, "first name", &Contact::set_first_name);
-	//void (Contact::*set)(std::string) = ;
-	if (!this->add_name(contact, "first name", &Contact::set_nickname))
-		return(false);
-	if (!this->add_name(contact, "first name", &Contact::set_last_name))
+	if (!this->add_name(contact, "first name", &Contact::set_first_name))
 		return(false);
 	if (!this->add_name(contact, "last name", &Contact::set_last_name))
 		return(false);
-	if (this->count >= 7)
+	if (!this->add_name(contact, "nickname", &Contact::set_nickname))
+		return(false);
+	if (!this->add_phonenumber(contact))
+		return (false);
+	if (!this->add_secret(contact))
+		return (false);
+	if (this->count <= 7)
 		++this->count;
 	return (true);	
 
 }
-
-unsigned int	PhoneBook::get_count(void)
-{
-	return (this->count);
-}
-
-int main(void)
-{
-	PhoneBook pb;
-	pb.add_contact();
-	//pb.add_name(&pb.tab[0], "nickname", &Contact::set_first_name);
-	//bool			add_name(Contact *contact, std::string name, void (Contact::*f)(std::string))
-}
-
