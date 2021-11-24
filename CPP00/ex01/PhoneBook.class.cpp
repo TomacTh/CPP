@@ -92,7 +92,7 @@ bool	PhoneBook::display_contacts(void) const
 	
 }
 
-bool	PhoneBook::_add_name(Contact *contact, std::string name, void (Contact::*set)(std::string))
+bool	PhoneBook::_add_name(Contact* contact, std::string name, void (Contact::*set)(std::string))
 {
 	std::string str;
 
@@ -113,7 +113,7 @@ bool	PhoneBook::_add_name(Contact *contact, std::string name, void (Contact::*se
 	return (true);
 }
 
-bool	PhoneBook::_add_phonenumber(Contact *contact)
+bool	PhoneBook::_add_phonenumber(Contact* contact)
 {
 	std::string str;
 
@@ -131,7 +131,7 @@ bool	PhoneBook::_add_phonenumber(Contact *contact)
 	return (true);
 }
 
-bool	PhoneBook::_add_secret(Contact *contact)
+bool	PhoneBook::_add_secret(Contact* contact)
 {
 	std::string str;
 
@@ -151,7 +151,7 @@ bool	PhoneBook::_add_secret(Contact *contact)
 
 bool	PhoneBook::add_contact(void)
 {
-	Contact *contact;
+	Contact*	contact;
 	
 	
 	if (this->_count > 7)

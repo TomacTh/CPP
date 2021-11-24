@@ -8,12 +8,11 @@ int	Account::_totalAmount = 0;
 int	Account::_totalNbDeposits = 0;
 int	Account::_totalNbWithdrawals = 0;
 
-Account::Account( int initial_deposit )
+Account::Account( int initial_deposit ):_amount(initial_deposit)
 {
 	static	int index;
 
 	this->_accountIndex = index++;
-	this->_amount = initial_deposit;
 	this->_nbWithdrawals = 0;
 	this->_nbDeposits = 0;	
 	Account::_totalAmount += initial_deposit;
@@ -31,7 +30,7 @@ Account::~Account( void )
 void	Account::_displayTimestamp(void)
 {
 	time_t		timer;
-	struct tm	*t_info;
+	struct tm*	t_info;
 
 	time(&timer);
 	t_info = localtime (&timer);
