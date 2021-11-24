@@ -1,8 +1,8 @@
 #include <iostream>
 #include <ios>
 #include <iomanip>
-#include "Contact.class.hpp"
-#include "PhoneBook.class.hpp"
+#include "Contact.hpp"
+#include "PhoneBook.hpp"
 
 PhoneBook::PhoneBook(void):_count(0)
 {
@@ -121,7 +121,7 @@ bool	PhoneBook::_add_phonenumber(Contact* contact)
 	std::getline(std::cin, str);
 	if (std::cin.fail())
 		return (false);
-	else if (str.length() < 10 || !contain_only_digits(str))
+	else if (str.length() != 10 || !contain_only_digits(str))
 	{
 		std::cerr << "Error please enter a correct input" << std::endl;
 		this->_add_phonenumber(contact);

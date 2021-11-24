@@ -2,7 +2,7 @@
 #include <iostream>
 #include <ios>
 #include <iomanip>
-#include "Contact.class.hpp"
+#include "Contact.hpp"
 
 Contact::Contact(void)
 {

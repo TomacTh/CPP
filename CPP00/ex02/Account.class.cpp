@@ -77,7 +77,9 @@ bool	Account::makeWithdrawal( int withdrawal )
 
 void	Account::makeDeposit(int deposit)
 {
-	int	p_amount = _amount;
+	int	p_amount; 
+	
+	p_amount = _amount;
 	_amount += deposit;
 	Account::_totalAmount += deposit;
 	++_nbDeposits;

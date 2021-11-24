@@ -1,5 +1,5 @@
-NAME		= phonebook
-SRC			= ./PhoneBook.cpp ./Contact.cpp ./main.cpp
+NAME		= ex03
+SRC			= ./HumanA.cpp ./HumanB.cpp ./Weapon.cpp ./main.cpp
 OBJ			= $(SRC:.cpp=.o)
 FLAGS		= -Wall -Wextra -Werror -g -std=c++98
 

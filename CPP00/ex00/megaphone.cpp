@@ -1,6 +1,6 @@
 #include <iostream>
 
-char *str_toupper(char *str)
+char*	str_toupper(char *str)
 {	
 	for (size_t i = 0; str[i]; ++i)
 		str[i] = toupper(str[i]);
