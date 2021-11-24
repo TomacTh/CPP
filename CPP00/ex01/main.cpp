@@ -1,6 +1,3 @@
-#include <iostream>
-#include <ios>
-#include <iomanip>
 #include "PhoneBook.class.hpp"
 
 int main(void)

@@ -16,6 +16,6 @@ int	main(int ac, char **argv)
 		for (int i = 1; i < ac; ++i)
 			std::cout << str_toupper(argv[i]);
 	}
-	std::cout << '\n';
+	std::cout << std::endl;
 	return (0);
 }
