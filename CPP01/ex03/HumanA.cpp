@@ -2,7 +2,7 @@
 
 HumanA::HumanA(std::string str, Weapon& weaponarg):weapon(weaponarg), name(str)
 {
-	return ;
+	std::cout << "HumanA constructor called" << std::endl;
 }
 
 HumanA::~HumanA(void)

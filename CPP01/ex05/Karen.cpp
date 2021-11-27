@@ -2,12 +2,12 @@
 
 Karen::Karen(void)
 {
-	return ;
+	std::cout << "Karen constructor called" << std::endl;
 }
 
 Karen::~Karen(void)
 {
-	return ;
+	std::cout << "Karen destructor called" << std::endl;
 }
 
 void	Karen::debug(void) const

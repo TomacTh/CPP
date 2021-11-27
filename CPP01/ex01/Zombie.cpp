@@ -2,12 +2,12 @@
 
 Zombie::Zombie(std::string str):name(str)
 {
-	return ;
+	std::cout << "Zombie constructor with string called" << std::endl;
 }
 
 Zombie::Zombie(void):name("default")
 {
-	return ;
+	std::cout << "Default zombie constructor called" << std::endl;
 }
 
 Zombie::~Zombie(void)

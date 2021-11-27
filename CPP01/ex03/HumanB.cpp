@@ -2,12 +2,12 @@
 
 HumanB::HumanB(std::string str):weapon(nullptr), name(str)
 {
-	return ;
+	std::cout << "HumanB constructor called" << std::endl;
 }
 
 HumanB::~HumanB(void)
 {
-	std::cout << "Human B destructor called" << std::endl;
+	std::cout << "HumanB destructor called" << std::endl;
 }
 
 void	HumanB::attack(void) const
