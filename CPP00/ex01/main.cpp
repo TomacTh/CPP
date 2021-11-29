@@ -11,7 +11,11 @@ int main(void)
 		std::cout << "Please enter a valid command (ADD | SEARCH | EXIT)" << std::endl;
 		std::getline(std::cin, str);
 		if (std::cin.fail())
+		{	
+			if (!std::cin.eof())
+				std::cerr << "Error" << std::endl;
 			return (1);
+		}
 		if (!str.compare("ADD"))
 		{
 			res = phonebook.add_contact();
