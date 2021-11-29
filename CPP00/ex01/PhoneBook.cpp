@@ -99,10 +99,7 @@ bool	PhoneBook::_add_name(Contact* contact, std::string name, void (Contact::*se
 	std::cout << "Please enter a " << name << " (only letters, minimum 2)" << std::endl;
 	std::getline(std::cin, str);
 	if (std::cin.fail())
-	{	
-		std::cout << "eof";
 		return (false);
-	}
 	else if (str.length() < 2 || !contain_only_letters(str))
 	{
 		std::cerr << "Error please enter a correct input" << std::endl;

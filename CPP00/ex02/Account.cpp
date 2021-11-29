@@ -34,7 +34,7 @@ void	Account::_displayTimestamp(void)
 
 	time(&timer);
 	t_info = localtime (&timer);
-	std::cout << "[" << (1900 + t_info->tm_year) << t_info->tm_mon << t_info->tm_mday 
+	std::cout << "[" << (1900 + t_info->tm_year) << t_info->tm_mon + 1 << t_info->tm_mday 
 	<< "_" << t_info->tm_hour << t_info->tm_min << t_info->tm_sec << "] ";
 }
 
