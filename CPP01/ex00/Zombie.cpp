@@ -2,7 +2,7 @@
 
 Zombie::Zombie(std::string str):name(str)
 {
-	return ;
+	std::cout << "Constructor called" << std::endl;
 }
 
 Zombie::~Zombie(void)
