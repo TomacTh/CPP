@@ -13,7 +13,7 @@ float	const dot_multiply(Point const one, Point const two)
 {
 	float dot;
 
-	dot = a.gety().toFloat() 
+	dot = one.getx().toFloat() * two.gety().toFloat() - one.gety().toFloat() * two.getx().toFloat();
 }
 
 bool bsp( Point const a, Point const b, Point const c, Point const point)
