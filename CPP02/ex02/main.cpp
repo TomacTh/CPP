@@ -1,17 +1,32 @@
 #include "Fixed.hpp"
 
-int main( void ) {
+int main(void) {
+	//SUBJECT TEST
 	Fixed a;
-	Fixed const b( 10 );
-	Fixed const c( 42.42f );
-	Fixed const d( b );
-	a = Fixed( 1234.4321f );
-	std::cout << "a is " << a << std::endl;
-	std::cout << "b is " << b << std::endl;
-	std::cout << "c is " << c << std::endl;
-	std::cout << "d is " << d << std::endl;
-	std::cout << "a is " << a.toInt() << " as integer" << std::endl;
-	std::cout << "b is " << b.toInt() << " as integer" << std::endl;
-	std::cout << "c is " << c.toInt() << " as integer" << std::endl;
-	std::cout << "d is " << d.toInt() << " as integer" << std::endl;
+	Fixed const b(Fixed(5.05f) * Fixed(2));
+	std::cout << a << std::endl;
+	std::cout << ++a << std::endl;
+	std::cout << a << std::endl;
+	std::cout << a++ << std::endl;
+	std::cout << a << std::endl;
+	std::cout << b << std::endl;
+	std::cout << Fixed::max(a, b) << std::endl;
+	//MORE TEST
+	std::cout << std::endl;
+	Fixed divide(Fixed(10) / Fixed(2.5f));
+	std::cout << "TEST DIVISION OVERLOAD(10 / 2.5): " << divide << std::endl;
+	Fixed add(Fixed(5) + Fixed(10.25f));
+	std::cout << "TEST ADDITION OVERLOAD(5 + 10.25): " << add << std::endl;
+	Fixed subtract(Fixed(40) - Fixed(39.5f));
+	std::cout << "TEST SUBTRACT OVERLOAD(40 - 39.5): " << subtract << std::endl;
+	Fixed copy_divide = divide;
+	if (copy_divide == divide)
+		std::cout << "Copy divide is equal to divide" << std::endl;
+	if (copy_divide < add)
+		std::cout << "Copy divide is smaller than add" << std::endl;
+	if (copy_divide >= subtract)
+		std::cout << "Copy divide is greater or equal to subtract" << std::endl;
+	if (copy_divide != b)
+		std::cout << "Copy divide not equal to b" << std::endl;
+	return (0);
 }

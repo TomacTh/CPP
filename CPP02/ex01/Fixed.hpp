@@ -16,8 +16,8 @@ public:
 	int 	toInt( void ) const;
 	float	toFloat( void ) const;
 private:
-	static int const	fractionnal_bits;
-	int					value;
+	static int const	_fractionnal_bits;
+	int					_value;
 };
 
 std::ostream &	operator<<(std::ostream & out,Fixed const & rhs);

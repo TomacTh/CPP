@@ -16,7 +16,7 @@ public:
 	Fixed	operator-(Fixed const &) const;
 	Fixed	operator*(Fixed const &) const;
 	Fixed	operator/(Fixed const &) const;
-	
+
 	bool	operator>(Fixed const &) const;
 	bool	operator<(Fixed const &) const;
 	bool	operator>=(Fixed const &) const;

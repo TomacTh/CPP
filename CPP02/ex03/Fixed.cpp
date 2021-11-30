@@ -1,13 +1,13 @@
 #include "Fixed.hpp"
 
-Fixed::Fixed(void):__value(0)
+Fixed::Fixed(void):_value(0)
 {
 	return ;
 }
 
-Fixed::Fixed(Fixed const & src)
+Fixed::Fixed(Fixed const & copy)
 {
-	*this = src;
+	*this = copy;
 }
 
 Fixed::Fixed(int const integer):_value(integer << _fractionnal_bits)
@@ -138,7 +138,7 @@ void	Fixed::setRawBits(int const raw)
 	this->_value = raw;
 }
 //STATIC 
-int const	Fixed::_fractionnal_bits = 8;
+int const	Fixed::__fractionnal_bits = 8;
 
 Fixed const & Fixed::max(Fixed const & a, Fixed const & b)
 {
