@@ -8,9 +8,9 @@ public:
 	Fixed(Fixed const &);
 	~Fixed(void);
 	Fixed &	operator=(Fixed const &);
-	int	getRawBits(void) const;
-	void	setRawBits(int const);	
+	int		getRawBits(void) const;
+	void	setRawBits(int const);
 private:
-	static const int	fractionnal_bits;
+	static int const	fractionnal_bits;
 	int					value;
 };
