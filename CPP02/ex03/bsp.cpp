@@ -10,10 +10,10 @@ Point	const vect(Point const a, Point const b)
 
 float	cross_product(Point const one, Point const two)
 {
-	float dot;
+	float z;
 
-	dot = one.getx().toFloat() * two.getx().toFloat() + one.gety().toFloat() * two.gety().toFloat();
-	return (dot);
+	z = one.getx().toFloat() * two.gety().toFloat() - one.gety().toFloat() * two.getx().toFloat();
+	return (z);
 }
 
 bool bsp( Point const a, Point const b, Point const c, Point const point)

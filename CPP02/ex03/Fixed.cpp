@@ -5,25 +5,13 @@ Fixed::Fixed(void):_value(0)
 	return ;
 }
 
-Fixed::Fixed(Fixed const & copy)
-{
-	*this = copy;
-}
+Fixed::Fixed(Fixed const & copy){*this = copy;}
 
-Fixed::Fixed(int const integer):_value(integer << _fractionnal_bits)
-{
-	return ;
-}
+Fixed::Fixed(int const integer):_value(integer << _fractionnal_bits){}
 
-Fixed::Fixed(float const flt):_value((int)roundf(flt * (float)256))
-{
-	return ;
-}
+Fixed::Fixed(float const flt):_value((int)roundf(flt * (float)256)){}
 
-Fixed::~Fixed(void)
-{
-	return ;
-}
+Fixed::~Fixed(void){}
 //METHOD
 int	Fixed::toInt(void) const
 {
@@ -32,7 +20,7 @@ int	Fixed::toInt(void) const
 
 float	Fixed::toFloat(void) const
 {
-	return (float)((float)_value / (float)256);
+	return ((float)_value / (float)256);
 }
 //OVERLOAD BASIC OPERATION
 Fixed &	Fixed::operator=(Fixed const & rhs)

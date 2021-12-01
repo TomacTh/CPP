@@ -1,26 +1,34 @@
 #include "Point.hpp"
-
+//https://planetcalc.com/8108/
 /*
 |  .
-|  i   o
+|
 | .   .
 |_ _ _ _ _
 */
 
-int main(void)
+void	test_bsp(Point point)
 {
 	Point A(1, 1);
 	Point B(2, 3);
 	Point C(4, 1);
-	Point out(4, 2);
-	Point in(2,2);
 
-	if (bsp(A, B, C, out))
-		std::cout << "out Point is inside the triangle" << std::endl;
-	else if (bsp(A, B, C, in))
-		std::cout << "in Point is inside the triangle" << std::endl;
+	if (bsp(A, B, C, point))
+		std::cout << "Point inside" << std::endl;
+	else
+		std::cout << "Point outside" << std::endl;
+}
+
+int main(void)
+{
+	test_bsp(Point(2, 2)); //inside
+	test_bsp(Point(2, 1)); //on edge
+	test_bsp(Point(4, 4)); //outside
+	test_bsp(Point(2, 3)); //on vertex
+	test_bsp(Point(2.5f, 1.1f)); //inside
 	/////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 	std::cout << std::endl;
+	Point A(7, 1.5);
 	Point a_copy(A);
 	std::cout << "a_copy (xfloat): " << a_copy.getx().toFloat() << " (yfloat): " << a_copy.getx().toFloat() << std::endl;
 	Point a_assign = A;

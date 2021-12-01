@@ -1,29 +1,19 @@
 #include "Fixed.hpp"
 
-Fixed::Fixed(void):__value(0)
-{
-	return ;
-}
+//CONSTRUCTOR DESTRUCTOR
+Fixed::Fixed(void):_value(0){}
 
 Fixed::Fixed(Fixed const & src)
 {
 	*this = src;
 }
 
-Fixed::Fixed(int const integer):_value(integer << _fractionnal_bits)
-{
-	return ;
-}
+Fixed::Fixed(int const integer):_value(integer << _fractionnal_bits){}
 
-Fixed::Fixed(float const flt):_value((int)roundf(flt * (float)256))
-{
-	return ;
-}
+Fixed::Fixed(float const flt):_value((int)roundf(flt * (float)256)){}
 
-Fixed::~Fixed(void)
-{
-	return ;
-}
+Fixed::~Fixed(void){}
+
 //METHOD
 int	Fixed::toInt(void) const
 {
@@ -32,8 +22,9 @@ int	Fixed::toInt(void) const
 
 float	Fixed::toFloat(void) const
 {
-	return (float)((float)_value / (float)256);
+	return ((float)_value / (float)256);
 }
+
 //OVERLOAD BASIC OPERATION
 Fixed &	Fixed::operator=(Fixed const & rhs)
 {
@@ -53,7 +44,7 @@ Fixed	Fixed::operator+(Fixed const & rhs) const
 Fixed	Fixed::operator-(Fixed const & rhs) const
 {
 	Fixed	el;
-	
+
 	el.setRawBits(this->getRawBits() - rhs.getRawBits());
 	return (el);
 }
@@ -69,64 +60,67 @@ Fixed	Fixed::operator*(Fixed const & rhs) const
 	Fixed	el(this->toFloat() * rhs.toFloat());
 	return (el);
 }
+
 //OVERLOAD INCREMENT AND DECREMENT
 Fixed 	Fixed::operator++(int)
 {
 	Fixed copy(*this);
-	
+
 	this->_value++;
-	return (copy);	
+	return (copy);
 }
 
 Fixed &	Fixed::operator++(void)
 {
 	++this->_value;
-	return (*this);	
+	return (*this);
 }
 
 Fixed 	Fixed::operator--(int)
 {
 	Fixed copy(*this);
-	
+
 	this->_value--;
-	return (copy);	
+	return (copy);
 }
 
 Fixed &	Fixed::operator--(void)
 {
 	--this->_value;
-	return (*this);	
+	return (*this);
 }
+
 //OVERLOAD OPERATOR BOOL
 bool	Fixed::operator>(Fixed const & rhs) const
 {
-	return (this->getRawBits() > rhs.getRawBits() ? true : false);
+	return (this->getRawBits() > rhs.getRawBits());
 }
 
 bool	Fixed::operator<(Fixed const & rhs) const
 {
-	return (this->getRawBits() < rhs.getRawBits() ? true : false);
+	return (this->getRawBits() < rhs.getRawBits());
 }
 
 bool	Fixed::operator>=(Fixed const & rhs) const
 {
-	return (this->getRawBits() >= rhs.getRawBits() ? true : false);
+	return (this->getRawBits() >= rhs.getRawBits());
 }
 
 bool	Fixed::operator<=(Fixed const & rhs) const
 {
-	return (this->getRawBits() <= rhs.getRawBits() ? true : false);
+	return (this->getRawBits() <= rhs.getRawBits());
 }
 
 bool	Fixed::operator!=(Fixed const & rhs) const
 {
-	return (this->getRawBits() != rhs.getRawBits() ? true : false);
+	return (this->getRawBits() != rhs.getRawBits());
 }
 
 bool	Fixed::operator==(Fixed const & rhs) const
 {
-	return (this->getRawBits() == rhs.getRawBits() ? true : false);
+	return (this->getRawBits() == rhs.getRawBits());
 }
+
 //ACCESSORS
 int	Fixed::getRawBits(void) const
 {
@@ -137,7 +131,8 @@ void	Fixed::setRawBits(int const raw)
 {
 	this->_value = raw;
 }
-//STATIC 
+
+//STATIC
 int const	Fixed::_fractionnal_bits = 8;
 
 Fixed const & Fixed::max(Fixed const & a, Fixed const & b)

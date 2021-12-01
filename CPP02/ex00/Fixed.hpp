@@ -11,6 +11,6 @@ public:
 	int		getRawBits(void) const;
 	void	setRawBits(int const);
 private:
-	static int const	_fractionnal_bits;
 	int					_value;
+	static int const	_fractionnal_bits;
 };
