@@ -1,5 +1,5 @@
 NAME		= ex02
-SRC			= ./Fixed.cpp ./main.cpp
+SRC			= ./Fixed.cpp  ./Point.cpp ./bsp.cpp ./main.cpp
 OBJ			= $(SRC:.cpp=.o)
 FLAGS		= -Wall -Wextra -Werror -g -std=c++98
 

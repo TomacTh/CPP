@@ -53,7 +53,7 @@ Fixed	Fixed::operator+(Fixed const & rhs) const
 Fixed	Fixed::operator-(Fixed const & rhs) const
 {
 	Fixed	el;
-	
+
 	el.setRawBits(this->getRawBits() - rhs.getRawBits());
 	return (el);
 }
@@ -73,29 +73,29 @@ Fixed	Fixed::operator*(Fixed const & rhs) const
 Fixed 	Fixed::operator++(int)
 {
 	Fixed copy(*this);
-	
+
 	this->_value++;
-	return (copy);	
+	return (copy);
 }
 
 Fixed &	Fixed::operator++(void)
 {
 	++this->_value;
-	return (*this);	
+	return (*this);
 }
 
 Fixed 	Fixed::operator--(int)
 {
 	Fixed copy(*this);
-	
+
 	this->_value--;
-	return (copy);	
+	return (copy);
 }
 
 Fixed &	Fixed::operator--(void)
 {
 	--this->_value;
-	return (*this);	
+	return (*this);
 }
 //OVERLOAD OPERATOR BOOL
 bool	Fixed::operator>(Fixed const & rhs) const
@@ -137,8 +137,8 @@ void	Fixed::setRawBits(int const raw)
 {
 	this->_value = raw;
 }
-//STATIC 
-int const	Fixed::__fractionnal_bits = 8;
+//STATIC
+int const	Fixed::_fractionnal_bits = 8;
 
 Fixed const & Fixed::max(Fixed const & a, Fixed const & b)
 {
