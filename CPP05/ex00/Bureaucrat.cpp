@@ -43,6 +43,11 @@ void	Bureaucrat::incrementGrade(void) throw(HIGHException) {
 		throw HIGHException();
 	_grade--;
 }
+//EXCEPTION NESTED CLASS
+
+const char	*Bureaucrat::HIGHException::what(void) const throw() { return ("* GRADE TOO HIGH! *\n"); }
+const char	*Bureaucrat::LOWException::what(void) const throw() { return ("* GRADE TOO LOW! *\n"); }
+
 //ACCESSORS
 
 int	Bureaucrat::getGrade(void) const {

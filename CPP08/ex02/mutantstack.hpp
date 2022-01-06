@@ -10,11 +10,11 @@ class MutantStack : public std::stack<T>
 {
 	public:
 		MutantStack(){}
-		MutantStack(MutantStack<T> const & src) {*this = src;}
+		MutantStack(MutantStack<T> const & src) { *this = src; }
 		MutantStack<T> const &	operator=(MutantStack<T> const & rhs);
 		typedef typename MutantStack<T>::container_type::iterator iterator;
-		iterator begin() {return this->c.begin();}
-		iterator end() {return this->c.end();}
+		iterator begin() { return this->c.begin(); }
+		iterator end() { return this->c.end(); }
 		virtual ~MutantStack(){}
 };
 

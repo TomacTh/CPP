@@ -60,6 +60,11 @@ void	Bureaucrat::signForm(Form & form) const{
 		}
 	}
 }
+//EXCEPTION NESTED CLASS
+
+const char	*Bureaucrat::HIGHException::what(void) const throw() { return ("* GRADE TOO HIGH! *\n"); }
+const char	*Bureaucrat::LOWException::what(void) const throw() { return ("* GRADE TOO LOW! *\n"); }
+
 //ACCESSORS
 
 int	Bureaucrat::getGrade(void) const {

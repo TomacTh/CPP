@@ -22,3 +22,5 @@ Form	*Intern::makeForm(std::string name, std::string target) const{
 			return (form);
 	}
 }
+
+Intern const &	Intern::operator=(Intern const &) { return *this;}

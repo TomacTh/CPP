@@ -1,24 +1,20 @@
-NAME	:= ex01
-CXX		:= clang++
-CXXFLAGS	:= -Werror -Wall -Wextra -std=c++98
-RM		:= rm -rf
-FILES	:= ./main.cpp ./Bureaucrat.cpp ./Form.cpp
-OBJS	:= $(FILES:.cpp=.o)
+NAME		= ex01
+SRC			=  ./main.cpp ./Bureaucrat.cpp ./Form.cpp
+OBJ			= $(SRC:.cpp=.o)
+FLAGS		= -Wall -Wextra -Werror -g  -std=c++98
 
-all: $(NAME)
+all			: $(NAME)
 
-$(NAME): $(OBJS)
-	$(CXX) $(CXXFLAGS) $< -lm -o $@
+$(NAME)		: $(OBJ)
+			clang++ $(FLAGS) -o $@ $^
 
-%.o: %.c
-	$(CXX) $(CXXFLAGS) -c $< -o $@
+%.o			: %.cpp
+			clang++ $(FLAGS) -o $@ -c $^
 
-clean:
-	$(RM) $(OBJS)
+clean		:
+			rm -rf $(OBJ)
 
-fclean: clean
-	$(RM) $(NAME)
+fclean		: clean
+			rm -rf $(NAME)
 
-re: fclean all
-
-.Phony: all re fclean clean
+re			: fclean all

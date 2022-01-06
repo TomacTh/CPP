@@ -11,19 +11,17 @@ class Span
 
 		class	SpanException : public std::exception {
 		public:
-			virtual ~SpanException() throw() {}
-			SpanException(const std::string& error) throw() : _error("* SPAN EXCEPTION *: " + error) {}
-			const char	*what() const throw() {
-				return _error.c_str();
-			}
+			virtual ~SpanException() throw();
+			SpanException(const std::string& error) throw();
+			const char	*what() const throw();
 		private:
 			std::string	_error;
 	};
 
-		Span(void) : _len(0) {}
-		Span(unsigned int N) : _len(N) {}
-		Span(Span const & src) {*this = src;}
-		virtual ~Span(void) {}
+		Span(void);
+		Span(unsigned int N);
+		Span(Span const & src);
+		virtual ~Span(void);
 		Span const &	operator=(Span const &);
 
 		void	addNumber(int const &) throw (Span::SpanException);

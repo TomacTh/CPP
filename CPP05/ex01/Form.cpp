@@ -70,6 +70,14 @@ bool Form::getSigned(void) const {
 	return (_signed);
 }
 
+Form::HIGHException::HIGHException(std::string const str) throw() :_error(str + "* GRADE TOO HIGH! *\n") {}
+Form::HIGHException::~HIGHException() throw() {}
+const char *Form::HIGHException::what() const throw() { return (_error).c_str(); }
+
+Form::LOWException::LOWException(std::string const str) throw() :_error(str + "* GRADE TOO LOW! *\n") {}
+Form::LOWException::~LOWException() throw() {}
+const char *Form::LOWException::what() const throw() { return (_error).c_str(); }
+
 std::ostream &	operator<<(std::ostream & o,Form const & rhs) {
 
 	std::string sign;

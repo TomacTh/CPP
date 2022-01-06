@@ -28,6 +28,13 @@ unsigned int	Span::shortestSpan(void) const throw (SpanException)
 		return (min);
 	}
 }
+Span::Span(void) : _len(0) {}
+
+Span::Span(unsigned int N) : _len(N) {}
+
+Span::Span(Span const & src) { *this = src; }
+
+Span::~Span(void) {}
 
 Span const &	Span::operator=(Span const & rhs)
 {
@@ -50,3 +57,8 @@ void	Span::addNumber(int const &n) throw (Span::SpanException)
 	else
 		_vect.push_back(n);
 }
+
+
+Span::SpanException::~SpanException(void) throw() {}
+Span::SpanException::SpanException(const std::string& error) throw() : _error("* SPAN EXCEPTION *: " + error) {}
+const char	*Span::SpanException::what(void) const throw() { return _error.c_str(); }

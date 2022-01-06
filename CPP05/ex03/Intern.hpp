@@ -11,7 +11,7 @@ class Intern {
 	public:
 		Intern(){}
 		Intern(Intern const & src){*this = src;}
-		Intern const &	operator=(Intern const &) {return *this;}
+		Intern const &	operator=(Intern const &);
 		~Intern(){}
 		Form	*makeForm(std::string, std::string) const;
 	private:

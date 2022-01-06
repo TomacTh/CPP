@@ -14,15 +14,11 @@ class Bureaucrat {
 
 		class	HIGHException : public std::exception{
 			public:
-				virtual const char*	what(void) const throw() {
-					return ("* GRADE TOO HIGH! *\n");
-				}
+				virtual const char*	what(void) const throw();
 		};
 		class	LOWException : public std::exception{
 			public:
-				virtual const char*	what(void) const throw() {
-					return ("* GRADE TOO LOW! *\n");
-				}
+				virtual const char*	what(void) const throw();
 		};
 
 		Bureaucrat(void);

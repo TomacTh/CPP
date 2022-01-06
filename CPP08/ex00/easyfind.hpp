@@ -7,11 +7,9 @@
 
 class	NotFoundException : public std::exception {
 public:
-	virtual ~NotFoundException() throw() {}
-	NotFoundException() throw() {}
-	const char	*what() const throw() {
-		return "Not found\n";
-	}
+	virtual ~NotFoundException() throw();
+	NotFoundException() throw();
+	const char	*what() const throw();
 private:
 	std::string	_error;
 };

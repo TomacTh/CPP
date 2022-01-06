@@ -11,22 +11,17 @@ class Form {
 			private:
 				std::string	 const _error;
 			public:
-				HIGHException(std::string const str) throw() :_error(str + "* GRADE TOO HIGH! *\n") {}
-				virtual ~HIGHException() throw() {}
-				virtual const char*	what() const throw() {
-					return (_error).c_str();
-				}
+				HIGHException(std::string const str) throw();
+				virtual ~HIGHException() throw();
+				virtual const char*	what() const throw();
 		};
-
 		class	LOWException : public std::exception{
 			private:
 				std::string	const _error;
 			public:
-				virtual ~LOWException() throw() {}
-				LOWException(std::string const str) :_error(str + "* GRADE TOO LOW! *\n") {}
-				virtual const char*	what() const throw() {
-					return (_error).c_str();
-				}
+				virtual ~LOWException() throw();
+				LOWException(std::string const str) throw();
+				virtual const char*	what() const throw();
 		};
 
 		Form(std::string, int, int) throw (std::exception);

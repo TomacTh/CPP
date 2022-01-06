@@ -13,5 +13,5 @@ public:
 	void	guardGate(void) const;
 	void	attack(std::string const &) const;
 protected:
-	int		default_energy;
+	int		default_values[2];
 };

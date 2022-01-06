@@ -3,7 +3,8 @@
 //CONSTRUTOR DESTRUCOR
 DiamondTrap::DiamondTrap(void):_name("DefaultDiamondTrap") {
 	ClapTrap::_name = _name + "_clap_name";
-	_energypoints = this->ScavTrap::default_energy;
+	_energypoints = this->ScavTrap::default_values[0];
+	_hitpoints = default_values[1];
 	std::cout << "DiamondTrap default constructor called" << std::endl;
 }
 
@@ -13,7 +14,8 @@ DiamondTrap::~DiamondTrap(void) {
 
 DiamondTrap::DiamondTrap(std::string str):_name(str) {
 	ClapTrap::_name = _name + "_clap_name";
-	_energypoints = default_energy;
+	_energypoints = default_values[0];
+	_hitpoints = default_values[1];
 	std::cout << ClapTrap::_name  + "\nDiamondTrap parametrical constructor called" << std::endl;
 }
 

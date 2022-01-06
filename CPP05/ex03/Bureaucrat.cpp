@@ -70,9 +70,14 @@ void	Bureaucrat::executeForm(Form const & form) const {
 	}
 	catch (std::exception const &e)
 	{
-		std::cerr << _name << " cannot execute form " << form.getName() << " beceause:\n" << e.what() << std::endl;
+		std::cerr << _name << " cannot execute form " << form.getName() << " beceause:\n" << e.what();
 	}
 }
+//EXCEPTION NESTED CLASS
+
+const char	*Bureaucrat::HIGHException::what(void) const throw() { return ("* GRADE TOO HIGH! *\n"); }
+const char	*Bureaucrat::LOWException::what(void) const throw() { return ("* GRADE TOO LOW! *\n"); }
+
 //ACCESSORS
 
 int	Bureaucrat::getGrade(void) const {
