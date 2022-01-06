@@ -24,6 +24,7 @@ class Bureaucrat {
 					return ("* GRADE TOO LOW! *\n");
 				}
 		};
+
 		Bureaucrat(void);
 		Bureaucrat(Bureaucrat const &) throw (std::exception);
 		Bureaucrat(std::string, int) throw (std::exception);

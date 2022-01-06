@@ -12,7 +12,7 @@ $(NAME)		: $(OBJ)
 			clang++ $(FLAGS) -o $@ -c $^
 
 clean		:
-			rm -rf *.o
+			rm -rf $(OBJ) starget_shruberry
 
 fclean		: clean
 			rm -rf $(NAME)

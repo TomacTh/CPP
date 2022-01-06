@@ -1,5 +1,5 @@
 NAME		= megaphone
-SRC			= ./megaphone.cpp 
+SRC			= ./megaphone.cpp
 OBJ			= $(SRC:.cpp=.o)
 FLAGS		= -Wall -Wextra -Werror -g -std=c++98
 
@@ -12,7 +12,7 @@ $(NAME)		: $(OBJ)
 			clang++ $(FLAGS) -o $@ -c $^
 
 clean		:
-			rm -rf *.o
+			rm -rf $(OBJ)
 
 fclean		: clean
 			rm -rf $(NAME)
