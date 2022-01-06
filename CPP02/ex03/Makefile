@@ -1,4 +1,4 @@
-NAME		= ex02
+NAME		= ex03
 SRC			= ./Fixed.cpp  ./Point.cpp ./bsp.cpp ./main.cpp
 OBJ			= $(SRC:.cpp=.o)
 FLAGS		= -Wall -Wextra -Werror -g -std=c++98
