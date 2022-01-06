@@ -6,10 +6,10 @@ Fixed::Fixed(void):_value(0)
 	std::cout << "Default constructor called" << std::endl;
 }
 
-Fixed::Fixed(Fixed const & copy)
+Fixed::Fixed(Fixed const & src)
 {
 	std::cout << "Copy constructor called" << std::endl;
-	*this = copy;
+	*this = src;
 }
 
 Fixed::Fixed(int const integer):_value(integer << _fractionnal_bits)
@@ -36,7 +36,7 @@ Fixed &	Fixed::operator=(Fixed const & rhs)
 	return (*this);
 }
 
-//PUBLIC METHOD
+//PUBLIC MEMBERS FUNCTIONS
 int	Fixed::toInt(void) const
 {
 	return (_value >> _fractionnal_bits);

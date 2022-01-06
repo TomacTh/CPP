@@ -14,7 +14,7 @@ Fixed::Fixed(float const flt):_value((int)roundf(flt * (float)256)){}
 
 Fixed::~Fixed(void){}
 
-//METHOD
+//MEMBERS FUNCTIONS
 int	Fixed::toInt(void) const
 {
 	return (_value >> _fractionnal_bits);

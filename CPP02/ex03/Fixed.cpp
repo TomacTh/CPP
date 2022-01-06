@@ -1,18 +1,15 @@
 #include "Fixed.hpp"
 
-Fixed::Fixed(void):_value(0)
-{
-	return ;
-}
+Fixed::Fixed(void):_value(0){}
 
-Fixed::Fixed(Fixed const & copy){*this = copy;}
+Fixed::Fixed(Fixed const & src){*this = src;}
 
 Fixed::Fixed(int const integer):_value(integer << _fractionnal_bits){}
 
 Fixed::Fixed(float const flt):_value((int)roundf(flt * (float)256)){}
 
 Fixed::~Fixed(void){}
-//METHOD
+//MEMBER FUNCTIONS
 int	Fixed::toInt(void) const
 {
 	return (_value >> _fractionnal_bits);

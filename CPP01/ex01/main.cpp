@@ -8,9 +8,10 @@ int	main(void)
 	horde = zombieHorde(-1, "neg");
 	horde = zombieHorde(10, "tenzombies");
 	for(int i = 0; i < 10; ++i)
-	{	
+	{
 		std::cout << i << " ";
-		horde[i].announce();	
+		horde[i].announce();
 	}
 	delete [] horde;
+	return (0);
 }

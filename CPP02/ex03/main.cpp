@@ -35,4 +35,5 @@ int main(void)
 	std::cout << "a_assign (xfloat): " << a_copy.getx().toFloat() << " (yfloat): " << a_copy.getx().toFloat() << std::endl;
 	Point pointdefault;
 	std::cout << "default: " << pointdefault.getx().toFloat() << " (yfloat): " << pointdefault.getx().toFloat() << std::endl;
+	return (0);
 }
