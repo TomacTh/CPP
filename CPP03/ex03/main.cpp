@@ -9,9 +9,13 @@ int main (void)
 	<< dtrap.getattackdamage() << "\nNAME: " << dtrap.getdiamondname()
 	<< "\nCLAP_NAME: " + dtrap.getname() << "\n\n";
 
+	//claptrapfunc
 	dtrap.attack("target");
 	dtrap.beRepaired(18);
+	//scav and frag functions
 	dtrap.highFivesGuys();
 	dtrap.guardGate();
+	//diamondtrap func
+	dtrap.whoamI();
 	return (0);
 }
