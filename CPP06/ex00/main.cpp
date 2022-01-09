@@ -35,22 +35,22 @@ void	print_char(long long n)
 void	print_float(const float f)
 {
 	float f_p;
-	
+
 	if (!modff(f, &f_p))
 		std::cout.precision(1);
 	else
-		std::cout.precision(std::numeric_limits< float >::max_digits10);
+		std::cout.precision(std::numeric_limits< float >::digits10);
 	std::cout << "float: " << f << "f\n";
 }
 
 void	print_double(const double d)
 {
 	double d_p;
-	
+
 	if (!modf(d, &d_p))
 		std::cout.precision(1);
 	else
-		std::cout.precision(std::numeric_limits< double >::max_digits10);
+		std::cout.precision(std::numeric_limits< double >::digits10);
 	std::cout << "double: " << d << std::endl;
 }
 
@@ -107,8 +107,8 @@ bool is_int(char const *str) {
 	{
 		print_char(res);
 		print_int(res);
-		print_float(strtof(str, NULL)); //use instead of cast to have inf/-inff or  as overflow/underflow
-		print_double(strtod(str, NULL)); //use instead of cast to have inff/-inff as overflow/underflow
+		print_float(strtof(str, NULL)); //use instead of static_cast to have more capacity and precision in case of long long overflow/underflow
+		print_double(strtod(str, NULL)); //use instead of static_cast to have more capacity and precision in case of long long overflow/underflow
 		return (true);
 	}
 }
