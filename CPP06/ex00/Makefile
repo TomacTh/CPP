@@ -1,7 +1,7 @@
 NAME		= converter
 SRC			=  ./main.cpp
 OBJ			= $(SRC:.cpp=.o)
-FLAGS		= -Wall -Wextra -Werror -g
+FLAGS		= -Wall -Wextra -Werror -g  -std=c++98
 
 all			: $(NAME)
 
