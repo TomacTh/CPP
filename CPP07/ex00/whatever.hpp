@@ -15,7 +15,7 @@ T	min(T const & a, T const & b)
 }
 
 template <typename T>
-void	swap(T & a, T	& b)
+void	swap(T & a, T &	b)
 {
 	T tmp;
 	tmp = a;

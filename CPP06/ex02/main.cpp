@@ -1,17 +1,6 @@
 #include <iostream>
 #include <math.h>
-
-class Base {
-	public:
-		Base(){}
-		Base(Base const &){}
-		Base const & operator=(Base const &){return *this;}
-		virtual ~Base(){}
-};
-
-class A : public Base {};
-class B : public Base {};
-class C : public Base {};
+#include "Base.hpp"
 
 Base * generate(void)
 {
