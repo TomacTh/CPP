@@ -1,4 +1,7 @@
-#include <iostream>
+#ifndef BUREAUCRAT_HPP
+# define BUREAUCRAT_HPP
+
+# include <iostream>
 
 class Bureaucrat {
 	private:
@@ -29,3 +32,4 @@ class Bureaucrat {
 };
 
 std::ostream &	operator<<(std::ostream & o,Bureaucrat const & rhs);
+#endif
