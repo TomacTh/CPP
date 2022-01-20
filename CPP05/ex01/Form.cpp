@@ -16,10 +16,10 @@ Form::Form(std::string name, int s_grade, int e_grade) throw (std::exception) :
 
 	if (s_grade < 1)
 		throw HIGHException("Signed Form: ");
-	else if (e_grade < 1)
-		throw HIGHException("Exec Form: ");
 	else if (s_grade > 150)
 		throw LOWException("Signed Form: ");
+	else if (e_grade < 1)
+		throw HIGHException("Exec Form: ");
 	else if (e_grade > 150)
 		throw LOWException("Exec Form : ");
 	std::cout << "Parametrical Form constructor called\n";
@@ -29,14 +29,14 @@ Form::Form(Form const & src) throw (std::exception) :
 	_name(src.getName()),
 	_sign_grade(src.getSignedGrade()),
 	_exec_grade(src.getExecGrade()),
-	_signed(src.getSigned()) {
+	_signed(false) {
 
 	if (_sign_grade < 1)
 		throw HIGHException("Signed Form: ");
-	else if (_exec_grade < 1)
-		throw HIGHException("Exec Form: ");
 	else if (_sign_grade > 150)
 		throw LOWException("Signed Form: ");
+	else if (_exec_grade < 1)
+		throw HIGHException("Exec Form: ");
 	else if (_exec_grade > 150)
 		throw LOWException("Exec Form :");
 	std::cout << "Copy Form constructor called\n";
@@ -51,7 +51,8 @@ Form const &	Form::operator=(Form const & rhs) {
 void	Form::beSigned(Bureaucrat const & bureaucrat) throw (Form::LOWException) {
 	if (bureaucrat.getGrade() > _sign_grade)
 		throw LOWException("Signed Form: Can't sign: ");
-	_signed = true;
+	else
+		_signed = true;
 }
 
 std::string const	Form::getName(void) const {

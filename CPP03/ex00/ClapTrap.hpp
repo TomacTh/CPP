@@ -15,15 +15,15 @@ public:
 	int	getenergypoints(void) const;
 	int	getattackdamage(void) const;
 	//member functions
-	void	attack(std::string const &) const;
+	void	attack(std::string const &) ;
 	void	takeDamage(unsigned int amount);
 	void	beRepaired(unsigned int amount);
 
 private:
-	std::string		_name;
-	int				_hitpoints;
-	int				_energypoints;
-	int				_attackdamage;
+	std::string					_name;
+	unsigned int				_hitpoints;
+	unsigned int				_energypoints;
+	unsigned int				_attackdamage;
 
 };
 

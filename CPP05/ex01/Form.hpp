@@ -33,9 +33,9 @@ class Form {
 		void	beSigned(Bureaucrat const &) throw(Form::LOWException);
 
 		std::string const	getName(void) const;
-		int	getSignedGrade(void) const;
-		int	getExecGrade(void) const;
-		bool getSigned(void) const;
+		int					getSignedGrade(void) const;
+		int					getExecGrade(void) const;
+		bool				getSigned(void) const;
 
 	private:
 		std::string const	_name;

@@ -48,19 +48,31 @@ int ClapTrap::getattackdamage(void) const {
 
 //MEMBERS FUNCTION
 
-void	ClapTrap::attack(std::string const & target) const{
-	std::cout << _name + " attack " + target + ", causing " << this->getattackdamage() << " points of damage!" << std::endl;
+void	ClapTrap::attack(std::string const & target) {
+	if (_energypoints > 0 && _hitpoints > 0)
+	{
+		std::cout << _name + " attack " + target + ", causing " << this->getattackdamage() << " points of damage!" << std::endl;
+		--_energypoints;
+	}
 }
 
 void	ClapTrap::takeDamage(unsigned int amount)
-{
-	_hitpoints -= amount;
-	if (_hitpoints < 0)
-		_hitpoints = 0;
-	std::cout << _name + " takes damages, and loose " << amount << " hitpoints!" << std::endl;
+{	
+	if (_hitpoints > 0)
+	{
+		if (amount > _hitpoints)
+			_hitpoints = 0;
+		else
+			_hitpoints -= amount;
+		std::cout << _name + " takes damages, and loose " << amount << " hitpoints!" << std::endl;
+	}
 }
 
-void	ClapTrap::beRepaired(unsigned amount) {
-	_hitpoints += amount;
-	std::cout << _name + " is repaired, and win " << amount << " hitpoints!" << std::endl;
+void	ClapTrap::beRepaired(unsigned int amount) {
+	if (_energypoints > 0 && _hitpoints > 0)
+	{
+		_hitpoints += amount;
+		--_energypoints;
+		std::cout << _name + " is repaired, and win " << amount << " hitpoints!" << std::endl;
+	}
 }

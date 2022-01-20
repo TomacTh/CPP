@@ -27,7 +27,6 @@ int main(void) {
 		delete animalsTab[i];
 	}
 
-
 	//PROVE THAT COPY ARE DEEP;
 	std::cout << "\n\033[92mNow  we test that copy are deep so we are going to create a new cat make a copy of it and delete the original\n\n\033[m";
 	const Cat	*cut = new Cat();

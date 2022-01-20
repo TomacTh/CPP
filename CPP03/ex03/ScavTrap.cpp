@@ -5,8 +5,7 @@ ScavTrap::ScavTrap(void) {
 	_hitpoints = 100;
 	_energypoints = 50;
 	_attackdamage = 20;
-	default_values[0] = _energypoints;
-	default_values[1] = _hitpoints;
+	_default_energypoints = _energypoints;
 	std::cout << "Default ScavTrap constructor called" << std::endl;
 }
 
@@ -15,8 +14,7 @@ ScavTrap::ScavTrap(std::string str) {
 	_hitpoints = 100;
 	_energypoints = 50;
 	_attackdamage = 20;
-	default_values[0] = _energypoints;
-	default_values[1] = _hitpoints;
+	_default_energypoints = _energypoints;
 	std::cout << "Parametrical ScavTrap constructor called" << std::endl;
 }
 
@@ -35,9 +33,8 @@ ScavTrap & ScavTrap::operator=(ScavTrap const & rhs) {
 		_name = rhs.getname();
 		_hitpoints = rhs.gethitpoints();
 		_attackdamage = rhs.getattackdamage();
-		_energypoints = rhs.gethitpoints();
-		default_values[0] = _energypoints;
-		default_values[1] = _hitpoints;
+		_energypoints = rhs.getenergypoints();
+		_default_energypoints = _energypoints;
 	}
 	return (*this);
 }

@@ -8,7 +8,7 @@ int main (void)
 	std::cout << "\033[m";
 	std::cout << "\033[34mprinting : " << first << second << std::endl << "\033[m";
 
-	try {
+	try {	
 		first.decrementGrade();
 	}
 	catch (const Bureaucrat::LOWException& e) {

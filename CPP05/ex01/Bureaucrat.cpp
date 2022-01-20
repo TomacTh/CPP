@@ -46,17 +46,17 @@ void	Bureaucrat::incrementGrade(void) throw(HIGHException) {
 
 void	Bureaucrat::signForm(Form & form) const{
 	if (form.getSigned())
-		std::cout << "Bureaucrat " << _name << " can't sign form " << _name << " beceause it is already signed!\n";
+		std::cout << _name << " can't sign form " << _name << " beceause it is already signed!\n";
 	else
 	{
 		try
 		{
 			form.beSigned(*this);
-			std::cout << "Bureaucrat " << _name << " signs form " << form.getName() << std::endl;
+			std::cout <<  _name << " signed form " << form.getName() << std::endl;
 		}
 		catch (Form::LOWException)
 		{
-			std::cout << "Bureaucrat " << _name << " can't sign form " << _name << " beceause grade " << _grade << " is to low\n";
+			std::cout << _name << " can't sign form " << _name << " beceause grade " << _grade << " is too low\n";
 		}
 	}
 }

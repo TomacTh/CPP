@@ -50,6 +50,5 @@ int main (void)
 	delete roboto;
 	delete presidential;
 	delete shruberry;
-
 	return (0);
 }

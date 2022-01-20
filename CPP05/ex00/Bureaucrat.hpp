@@ -10,7 +10,7 @@ class Bureaucrat {
 	public:
 
 		class	HIGHException : public std::exception{
-			public:
+			public:	
 				virtual const char*	what(void) const throw();
 		};
 		class	LOWException : public std::exception{
