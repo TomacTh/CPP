@@ -1,6 +1,6 @@
 #include <iostream>
 
-struct Data {};
+struct Data {int data;};
 
 uintptr_t serialize(Data* ptr)
 {
@@ -15,9 +15,11 @@ Data	*deserialize(uintptr_t raw)
 int main (void)
 {
 	Data mydata;
+	mydata.data = 42;
 	uintptr_t res_serialize = serialize(&mydata);
 	Data *res_deserialize = deserialize(res_serialize);
 	if (res_deserialize == &mydata)
 		std::cout << "Exercice is good: " << res_deserialize << " : " << &mydata << std::endl;
+	std::cout << res_deserialize->data << "\n";
 	return (0);
 }
