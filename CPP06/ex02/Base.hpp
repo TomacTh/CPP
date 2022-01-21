@@ -3,9 +3,6 @@
 
 class Base {
 	public:
-		Base();
-		Base(Base const &);
-		Base & operator=(Base const &);
 		virtual ~Base();
 };
 

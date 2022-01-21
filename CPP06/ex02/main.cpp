@@ -2,12 +2,6 @@
 #include <math.h>
 #include "Base.hpp"
 
-Base::Base(){}
-Base::Base(Base const &){};
-Base &	Base::operator=(Base const &){return *this;}
-Base::~Base(){};
-
-
 Base * generate(void)
 {
 	srand(time(0));

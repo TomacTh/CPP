@@ -58,7 +58,6 @@ bool is_double(char const *str)
 {
 	char *endptr;
 	double res = strtod(str, &endptr);
-	std::cout << res << "\n";
 	if (*endptr)
 		return (false);
 	else
@@ -116,7 +115,8 @@ bool is_int(char const *str) {
 int main(int ac, char **av)
 {
 	if (ac == 2)
-	{
+	{	
+		
 		std::cout << std::fixed;
 		if (is_int(av[1]))
 			return (0);
@@ -127,7 +127,7 @@ int main(int ac, char **av)
 		else if (is_char(av[1]))
 			return (0);
 		else
-		{
+		{	
 			std::cerr << "Bad formatting, unknow type\n";
 			return (1);
 		}
